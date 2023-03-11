@@ -6,7 +6,7 @@ from schoolmanagement_api.apps.users.models import SchoolUser
 
 
 class SchoolUserAdmin(admin.ModelAdmin):
-    list_display = ["first_name", "last_name", "email"]
+    list_display = ["first_name", "last_name", "email", "role"]
 
 
 admin.site.register(SchoolUser, SchoolUserAdmin)

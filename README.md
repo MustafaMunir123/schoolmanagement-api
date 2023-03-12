@@ -19,7 +19,7 @@ Initialized empty git repository
 
 Set remote origin
 ```bash
-  git remote add origin https://github.com/<username>/schoolmanagement-api.git
+  git remote add origin https://github.com/MustafaMunir123/schoolmanagement-api.git
 ```
 
 Take latest pull of master branch

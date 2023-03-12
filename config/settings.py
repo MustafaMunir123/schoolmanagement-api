@@ -27,7 +27,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
-LOCAL_APPS = ["schoolmanagement_api.apps.users"]
+LOCAL_APPS = [
+    "schoolmanagement_api.apps.users",
+    "schoolmanagement_api.apps.subscription",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",

@@ -29,9 +29,6 @@ class SchoolUserSerializer(serializers.Serializer):
             raise Exception
         return phonenumber
 
-    def valiadte_date_joined(self):
-        pass
-
     def create(self, validated_data):
         user = SchoolUser.objects.create(
             username=validated_data["username"],

@@ -125,3 +125,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "schoolmanagement_api.apps.utils.custom_exception_handler"
 }
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "cache_table_users",
+        "TIMEOUT": None,
+    }
+}

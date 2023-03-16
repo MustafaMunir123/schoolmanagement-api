@@ -42,3 +42,8 @@ class SchoolUserSerializer(serializers.Serializer):
             role=validated_data["role"],
         )
         return user
+
+
+class SchoolUserLoginSerializer(serializers.Serializer):
+    email = serializers.EmailField(allow_null=False, allow_blank=False)
+    password = serializers.CharField(allow_blank=False, allow_null=False)

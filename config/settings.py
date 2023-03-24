@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 LOCAL_APPS = [
     "schoolmanagement_api.apps.users",
     "schoolmanagement_api.apps.subscription",
+    "schoolmanagement_api.apps.school",
 ]
 
 INSTALLED_APPS = [

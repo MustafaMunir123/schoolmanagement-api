@@ -20,7 +20,9 @@ class School(models.Model):
 
 
 class Subject(models.Model):
-    subject_title = models.CharField(max_length=70, null=False, blank=False)
+    subject_title = models.CharField(
+        max_length=70, null=False, blank=False, unique=True
+    )
 
     def __str__(self):
         return self.subject_title

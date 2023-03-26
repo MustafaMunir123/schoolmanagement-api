@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -29,10 +31,13 @@ class Subject(models.Model):
 
 
 class Teacher(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(blank=False, null=False, max_length=70)
     last_name = models.CharField(blank=False, null=False, max_length=70)
-    contact_number = PhoneNumberField(blank=False, null=False, max_length=13)
-    email = models.EmailField(blank=True)
+    contact_number = PhoneNumberField(
+        blank=False, null=False, max_length=13, unique=True
+    )
+    email = models.EmailField(blank=True, unique=True)
     subjects = models.ManyToManyField(Subject)
 
     def __str__(self):
@@ -40,6 +45,7 @@ class Teacher(models.Model):
 
 
 class Classroom(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     class_name = models.CharField(
         blank=False, null=False, choices=CLASS_NAME_CHOICES, max_length=20
     )
@@ -53,6 +59,7 @@ class Classroom(models.Model):
 
 
 class Exam(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     type = models.CharField(null=False, blank=False, choices=EXAMS_TYPE, max_length=40)
     class_room = models.ManyToManyField(Classroom, blank=False)
     start_date = models.DateField(null=False, blank=False)
@@ -72,7 +79,9 @@ class Student(models.Model):
     )
     first_name_pr = models.CharField(max_length=20, blank=False, null=False)
     last_name_pr = models.CharField(max_length=20, blank=False, null=False)
-    contact_number_pr = PhoneNumberField(blank=False, null=False, max_length=13)
+    contact_number_pr = PhoneNumberField(
+        blank=False, null=False, max_length=13, unique=True
+    )
     address = models.CharField(max_length=200, blank=True)
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
 

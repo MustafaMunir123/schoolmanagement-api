@@ -6,17 +6,18 @@ from schoolmanagement_api.apps.school.models import (
     Student,
     Subject,
     Teacher,
+    School,
 )
 
 # Register your models here.
 
 
 class ClassroomAdmin(admin.ModelAdmin):
-    list_display = ["class_name", "section"]
+    list_display = ["class_name", "section", "id"]
 
 
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ["first_name", "last_name", "contact_number"]
+    list_display = ["first_name", "last_name", "contact_number", "id"]
 
 
 class StudentAdmin(admin.ModelAdmin):
@@ -24,7 +25,7 @@ class StudentAdmin(admin.ModelAdmin):
 
 
 class ExamsAdmin(admin.ModelAdmin):
-    list_display = ["type", "start_date"]
+    list_display = ["type", "start_date", "id"]
 
 
 class SubjectsAdmin(admin.ModelAdmin):
@@ -36,3 +37,4 @@ admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Exam, ExamsAdmin)
 admin.site.register(Subject, SubjectsAdmin)
+admin.site.register(School)
